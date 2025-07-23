@@ -1,0 +1,303 @@
+---
+openapi: 3.0.1
+info:
+  title: Siebel Rest API:Device Amendment
+  description: 'OpenAPI specification for Siebel Rest API: Device Amendment'
+  contact:
+    email: narayana.sankuratri@worldpay.com
+  version: '1.0'
+externalDocs:
+  description: OpenAPI
+  url: https://openapis.org
+servers:
+- url: https://ukdc2-g6-sbl02.worldpaytd.local:4443/siebel/v1.0
+- url: http://ukdc2-g6-sbl08.worldpaytd.local:4443/siebel/v1.0
+- url: https://v-j2-sbl.worldpaytd.local/siebel/v1.0
+- url: https://v-j3-sbl.worldpaytd.local/siebel/v1.0
+- url: https://v-j4-sbl.worldpaytd.local/siebel/v1.0
+tags:
+- name: workflow/WP Merchant Device Amendment WF/
+paths:
+  "/workflow/WP Merchant Device Amendment WF/":
+    post:
+      tags:
+      - workflow/WP Merchant Device Amendment WF/
+      operationId: workflow_WP_Merchant_Device_Amendment_WF__post
+      parameters:
+      - name: excludeEmptyFieldsInResponse
+        in: query
+        schema:
+          type: string
+          default: 'false'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              "$ref": "#/components/schemas/workflow_WP_Merchant_Device_Amendment_WF__in_args"
+          application/xml:
+            schema:
+              "$ref": "#/components/schemas/workflow_WP_Merchant_Device_Amendment_WF__in_args"
+        required: true
+      responses:
+        '200':
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/workflow_WP_Merchant_Device_Amendment_WF__out_args"
+            application/xml:
+              schema:
+                "$ref": "#/components/schemas/workflow_WP_Merchant_Device_Amendment_WF__out_args"
+        '204':
+          description: No Resource Found
+          content: {}
+        '304':
+          description: Not Modified
+          content: {}
+        '401':
+          description: Unauthorized
+          content: {}
+        '403':
+          description: Access Forbidden
+          content: {}
+        '404':
+          description: There is no data for the requested resource
+          content: {}
+        '500':
+          description: Internal Server Error
+          content: {}
+      security:
+      - basicAuth: []
+        oAuth2.0: []
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    workflow_WP_Merchant_Device_Amendment_WF__in_args:
+      type: object
+      properties:
+        SiebelMessage:
+          title: SiebelMessage
+          type: object
+          properties:
+            MessageId:
+              type: string
+              example: ''
+            MessageType:
+              type: string
+              example: Integration Object
+            IntObjectName:
+              type: string
+              example: WP Device Amendment - External
+            IntObjectFormat:
+              type: string
+              example: Siebel Hierarchical
+            ListOfWP Device Amendment - External:
+              type: object
+              properties:
+                Party:
+                  maxItems: 1
+                  minItems: 1
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      PartyId:
+                        title: PartyId
+                        type: string
+                        x-siebel-precision: '0'
+                        x-maxLength: '30'
+                        x-siebel-scale: '0'
+                        x-siebel-datatype: DTYPE_TEXT
+                      OrderId:
+                        title: OrderId
+                        type: string
+                        x-siebel-precision: '0'
+                        x-maxLength: '30'
+                        x-siebel-scale: '0'
+                        x-siebel-datatype: DTYPE_TEXT
+                      OrderLineId:
+                        title: OrderLineId
+                        type: string
+                        x-siebel-precision: '0'
+                        x-maxLength: '30'
+                        x-siebel-scale: '0'
+                        x-siebel-datatype: DTYPE_TEXT
+                      OrderType:
+                        title: OrderType
+                        type: string
+                        x-siebel-precision: '0'
+                        x-maxLength: '30'
+                        x-siebel-scale: '0'
+                        x-siebel-datatype: DTYPE_TEXT
+                      ParentSRId:
+                        title: ParentSRId
+                        type: string
+                        x-siebel-precision: '0'
+                        x-maxLength: '50'
+                        x-siebel-scale: '0'
+                        x-siebel-datatype: DTYPE_TEXT
+                      NewTID:
+                        title: NewTID
+                        type: string
+                        x-siebel-precision: '0'
+                        x-maxLength: '50'
+                        x-siebel-scale: '0'
+                        x-siebel-datatype: DTYPE_TEXT
+                      OldTID:
+                        title: OldTID
+                        type: string
+                        x-siebel-precision: '0'
+                        x-maxLength: '50'
+                        x-siebel-scale: '0'
+                        x-siebel-datatype: DTYPE_TEXT
+                      MID:
+                        title: MID
+                        type: string
+                        x-siebel-precision: '0'
+                        x-maxLength: '50'
+                        x-siebel-scale: '0'
+                        x-siebel-datatype: DTYPE_TEXT
+                      OldDeviceValidTo:
+                        title: OldDeviceValidTo
+                        type: string
+                        x-maxLength: '0'
+                        x-siebel-datatype: DTYPE_DATE
+                      ListOfCardAcceptorDevices:
+                        type: object
+                        properties:
+                          CardAcceptorDevices:
+                            minItems: 1
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                ContractId:
+                                  title: ContractId
+                                  type: string
+                                  x-maxLength: '15'
+                                  x-siebel-datatype: DTYPE_ID
+                                DeviceModel:
+                                  title: DeviceModel
+                                  type: string
+                                  x-siebel-precision: '0'
+                                  x-maxLength: '255'
+                                  x-siebel-scale: '0'
+                                  x-siebel-datatype: DTYPE_TEXT
+                                TerminalProvider:
+                                  title: TerminalProvider
+                                  type: string
+                                  x-siebel-precision: '0'
+                                  x-maxLength: '255'
+                                  x-siebel-scale: '0'
+                                  x-siebel-datatype: DTYPE_TEXT
+                                TerminalTypeCode:
+                                  title: TerminalTypeCode
+                                  type: string
+                                  x-siebel-precision: '0'
+                                  x-maxLength: '255'
+                                  x-siebel-scale: '0'
+                                  x-siebel-datatype: DTYPE_TEXT
+                                Sequence:
+                                  title: Sequence
+                                  type: string
+                                  x-siebel-precision: '0'
+                                  x-maxLength: '255'
+                                  x-siebel-scale: '0'
+                                  x-siebel-datatype: DTYPE_TEXT
+                                ValidFrom:
+                                  title: ValidFrom
+                                  type: string
+                                  x-maxLength: '0'
+                                  x-siebel-datatype: DTYPE_DATETIME
+                                ValidTo:
+                                  title: ValidTo
+                                  type: string
+                                  x-maxLength: '0'
+                                  x-siebel-datatype: DTYPE_DATETIME
+                                ListOfTID:
+                                  type: object
+                                  properties:
+                                    TID:
+                                      minItems: 1
+                                      type: array
+                                      items:
+                                        type: object
+                                        properties:
+                                          TIDNumber:
+                                            title: TIDNumber
+                                            type: string
+                                            x-siebel-precision: '0'
+                                            x-maxLength: '50'
+                                            x-siebel-scale: '0'
+                                            x-siebel-datatype: DTYPE_TEXT
+                                          ContractId:
+                                            title: ContractId
+                                            type: string
+                                            x-siebel-precision: '0'
+                                            x-maxLength: '50'
+                                            x-siebel-scale: '0'
+                                            x-siebel-datatype: DTYPE_TEXT
+                                          AcceptedCurrency:
+                                            title: AcceptedCurrency
+                                            type: string
+                                            x-siebel-precision: '0'
+                                            x-maxLength: '50'
+                                            x-siebel-scale: '0'
+                                            x-siebel-datatype: DTYPE_TEXT
+                                ListOfDeviceFeature:
+                                  type: object
+                                  properties:
+                                    DeviceFeature:
+                                      minItems: 1
+                                      type: array
+                                      items:
+                                        type: object
+                                        properties:
+                                          BusinessCode:
+                                            title: BusinessCode
+                                            type: string
+                                            x-siebel-precision: '0'
+                                            x-maxLength: '50'
+                                            x-siebel-scale: '0'
+                                            x-siebel-datatype: DTYPE_TEXT
+          x-siebel-datatype: Integration Object
+    workflow_WP_Merchant_Device_Amendment_WF__out_args:
+      type: object
+      properties:
+        Error Code:
+          title: Error Code
+          type: string
+          x-siebel-datatype: String
+        Error Id:
+          title: Error Id
+          type: string
+          x-siebel-datatype: String
+        Error Message:
+          title: Error Message
+          type: string
+          x-siebel-datatype: String
+        LAIPFlag:
+          title: LAIPFlag
+          type: string
+          x-siebel-datatype: String
+        Status:
+          title: Status
+          type: string
+          x-siebel-datatype: String
+        WorkRequestNumber:
+          title: WorkRequestNumber
+          type: string
+          x-siebel-datatype: String
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    oAuth2.0:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: http://openAPI.io/
+          scopes:
+            'write:': modify
+            'read:': read only
+x-original-swagger-version: '3.0'
