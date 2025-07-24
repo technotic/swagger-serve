@@ -9,7 +9,16 @@
 <script src="swagger-ui-bundle.js"></script>
 <script>
     window.ui = SwaggerUIBundle({
-        url: "https://technotic.github.io/swagger-serve/schemas/SiebelDeviceAmendmentAPI.yaml",
+        urls: [
+            {
+                "name": "device 1",
+                "url": "https://technotic.github.io/swagger-serve/schemas/SiebelDeviceAmendmentAPI.yaml"
+            },
+            {
+                "name": "device 2",
+                "url": "https://technotic.github.io/swagger-serve/schemas/SiebelDeviceAmendmentAPI.yaml"
+            }
+        ],
         dom_id: '#swagger-ui'
     });
 </script>
