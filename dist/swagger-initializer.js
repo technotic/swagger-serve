@@ -4,6 +4,7 @@ window.onload = function() {
   // the following lines will be replaced by docker/configurator, when it runs in a docker-container
   window.ui = SwaggerUIBundle({
     urls: [
+        /* START */
       {
         "name": "Device 1",
         "url": "/swagger-serve/schemas/SiebelDeviceAmendmentAPI.yaml"
@@ -12,6 +13,7 @@ window.onload = function() {
         "name": "Device 2",
         "url": "/swagger-serve/schemas/SiebelDeviceAmendmentAPI.yaml"
       }
+        /* END */
     ],    dom_id: '#swagger-ui',
     deepLinking: true,
     presets: [
